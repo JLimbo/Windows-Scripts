@@ -20,7 +20,7 @@ get-childitem -path $path -Recurse -Force | Where-Object { !$_.PSIsContainer -an
 rename-Item -path $logpath\DeletedFiles.txt -NewName $filedeleted
 
 #send email with deleted items
-Send-MailMessage -From "$FromAddress" -To "$ToAddress" -Cc "$CCAddress" -Subject "Files Deleted this week" -Body "Here is a log file of SFTP files Deleted this week" -Attachments "$logpath\*.txt" -SmtpServer "$SMTPServer"
+Send-MailMessage -From "$FromAddress" -To "$ToAddress" -Cc "$CCAddress" -Subject "Files Deleted this week" -Body "Here is a log file of files Deleted this week" -Attachments "$logpath\*.txt" -SmtpServer "$SMTPServer"
 
 #Clear log files
 remove-item -Path $logpath\*.txt 
